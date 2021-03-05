@@ -28,6 +28,10 @@ jobs:
     needs: test
     environment:
       name: actiongit-staging
+    steps:
+    # Checkout
+    - name: Checkout
+      uses: actions/checkout@v1
       
  
 
