@@ -40,10 +40,9 @@ jobs:
     - run: |
         echo "Approval done, running the script now."
         sudo apt-get update
+        exit 1
             
-    - run: echo "One last message"
-
-      
+         
 
   docker:
     name: Publish - Docker Hub
