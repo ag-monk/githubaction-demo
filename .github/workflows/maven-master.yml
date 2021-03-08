@@ -32,8 +32,13 @@ jobs:
     # Checkout
     - name: Checkout
       uses: actions/checkout@v1
+    - run: |
+        echo "Approval done, running the script now."
+        sudo apt-get update
+            
+    - run: echo "One last message"
+
       
- 
 
   docker:
     name: Publish - Docker Hub
