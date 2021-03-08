@@ -8,7 +8,7 @@ on:
 jobs:
 
   test:
-    name: Test - Units & Integrations
+    name: Run maven tests
     runs-on: ubuntu-18.04
 
     steps:
@@ -23,7 +23,7 @@ jobs:
         run: mvn -B clean verify -Pintegration-test
 
   provisionStage:
-    name: Provision stage
+    name: Release approval and Gating
     runs-on: ubuntu-latest
     needs: test
     environment:
@@ -32,6 +32,11 @@ jobs:
     # Checkout
     - name: Checkout
       uses: actions/checkout@v1
+      
+  runBash:
+    needs: provisionStage
+    runs-on: ubuntu-latest
+    steps:  
     - run: |
         echo "Approval done, running the script now."
         sudo apt-get update
