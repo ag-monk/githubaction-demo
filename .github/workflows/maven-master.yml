@@ -50,7 +50,7 @@ jobs:
           OWNER: ${{ github.event.repository.owner.login }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
       run: |
-          curl -s -X POST https://api.github.com/repos/$OWNER/$REPO/issues/$ISSUE_NUMBER/comments \
+          curl -s -X POST https://api.github.com/repos/ag-monk/githubaction-demo/issues/1/comments \
             -d '{"body":"Hello ${{ github.event.issue.user.login }}, Issue is not closed yet!"}'
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             
