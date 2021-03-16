@@ -83,7 +83,8 @@ jobs:
     - name: Update issue using REST API
       run: |
         curl \
-           -H "Accept: application/vnd.github.v3+json" \
+           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+           --header 'content-type: application/json' \
            -X POST -d '{"body":"This is being updated by workflow"}' \
            "https://api.github.com/repos/ag-monk/githubaction-demo/issues/5/comments"
            
