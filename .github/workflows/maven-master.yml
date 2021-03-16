@@ -81,6 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Update issue using REST API
+      uses: actions/checkout@v1
       with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
